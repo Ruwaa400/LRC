@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="chart" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bec04034-036b-40aa-bcdc-6eb43813be31">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT "COURCE_STU_NUM"."COURCE_NAME",
+	"COURCE_STU_NUM"."S_NUM"
+FROM "COURCE_STU_NUM"]]>
+	</queryString>
+	<field name="COURCE_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="COURCE_NAME"/>
+	</field>
+	<field name="S_NUM" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="S_NUM"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="91" y="9" width="580" height="50" forecolor="#182C7D" uuid="45f67b2b-b454-4931-b565-71ff01ecb84b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" size="30" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Students Number Registered In Each Cource]]></text>
+			</staticText>
+			<line>
+				<reportElement x="30" y="70" width="700" height="1" uuid="cb1060d9-5159-4942-bc1a-2d70225bf3c2"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="235" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="50" y="-110" width="650" height="340" uuid="6ec397b8-5cf0-4a13-a2dc-a688bdca4e9b"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{COURCE_NAME}]]></keyExpression>
+					<valueExpression><![CDATA[$F{S_NUM}]]></valueExpression>
+					<labelExpression><![CDATA[$F{S_NUM}.toString()]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="80" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="654" y="60" width="100" height="20" uuid="f6aa0100-46a7-4b4d-8283-80babfc1c505"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
