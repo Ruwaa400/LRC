@@ -1,0 +1,504 @@
+--------------------------------------------------------
+--  File created - Monday-July-29-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence ACTIVITY_ID
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "C##RUWAA"."ACTIVITY_ID"  MINVALUE 1 MAXVALUE 5000 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  CYCLE  NOKEEP  NOSCALE  GLOBAL ;
+--------------------------------------------------------
+--  DDL for Sequence COURCE_ID
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "C##RUWAA"."COURCE_ID"  MINVALUE 1 MAXVALUE 5000 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  CYCLE  NOKEEP  NOSCALE  GLOBAL ;
+--------------------------------------------------------
+--  DDL for Table ACTIVITY
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."ACTIVITY" 
+   (	"ACTIVITY_ID" NUMBER(*,0), 
+	"NAME" VARCHAR2(100 BYTE), 
+	"DETAILES" VARCHAR2(500 BYTE), 
+	"ACTIVITY_DATE" VARCHAR2(50 BYTE), 
+	"PLACE" VARCHAR2(100 BYTE), 
+	"START_TIME" VARCHAR2(10 BYTE), 
+	"END_TIME" VARCHAR2(10 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table ADMIN
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."ADMIN" 
+   (	"EMAIL" VARCHAR2(50 BYTE), 
+	"WORK_POSITION" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table CERTIFICATION
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."CERTIFICATION" 
+   (	"STUDENT_NAME" VARCHAR2(100 BYTE), 
+	"COURCE_NAME" VARCHAR2(50 BYTE), 
+	"CAN_DELETE" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table COURCE
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."COURCE" 
+   (	"COURCE_ID" NUMBER(*,0), 
+	"COURCE_NAME" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table COURCE_STU_NUM
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."COURCE_STU_NUM" 
+   (	"COURCE_NAME" VARCHAR2(50 BYTE), 
+	"S_NUM" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table ORGANIZE
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."ORGANIZE" 
+   (	"ACTIV_ID" NUMBER(*,0), 
+	"EMAIL" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table SCHEDULE
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."SCHEDULE" 
+   (	"S_COURCE_ID" NUMBER(*,0), 
+	"COURCE_NAME" VARCHAR2(50 BYTE), 
+	"START_DATE" VARCHAR2(50 BYTE), 
+	"END_DATE" VARCHAR2(50 BYTE), 
+	"START_TIME" VARCHAR2(10 BYTE), 
+	"END_TIME" VARCHAR2(10 BYTE), 
+	"DAYS_IN_WEEK" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table STAFF
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."STAFF" 
+   (	"EMAIL" VARCHAR2(50 BYTE), 
+	"F_NAME" VARCHAR2(30 BYTE), 
+	"S_NAME" VARCHAR2(30 BYTE), 
+	"TH_NAME" VARCHAR2(30 BYTE), 
+	"L_NAME" VARCHAR2(30 BYTE), 
+	"PHONE" VARCHAR2(10 BYTE), 
+	"COUNTRY" VARCHAR2(30 BYTE), 
+	"CITY" VARCHAR2(30 BYTE), 
+	"STREET" VARCHAR2(30 BYTE), 
+	"SEX" CHAR(1 BYTE), 
+	"STAFF_PASSWORD" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table STUDENT
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."STUDENT" 
+   (	"EMAIL" VARCHAR2(50 BYTE), 
+	"F_NAME" VARCHAR2(30 BYTE), 
+	"S_NAME" VARCHAR2(30 BYTE), 
+	"TH_NAME" VARCHAR2(30 BYTE), 
+	"L_NAME" VARCHAR2(30 BYTE), 
+	"PHONE" VARCHAR2(10 BYTE), 
+	"COUNTRY" VARCHAR2(30 BYTE), 
+	"CITY" VARCHAR2(30 BYTE), 
+	"STREET" VARCHAR2(30 BYTE), 
+	"STUDENT_PASSWORD" VARCHAR2(20 BYTE), 
+	"SEX" VARCHAR2(6 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table STUDENT_COURCES
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."STUDENT_COURCES" 
+   (	"S_COURCE_ID" NUMBER(*,0), 
+	"EMAIL" VARCHAR2(50 BYTE), 
+	"FEES" NUMBER(*,0), 
+	"STATUS" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table TEACHER
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."TEACHER" 
+   (	"EMAIL" VARCHAR2(50 BYTE), 
+	"NATIVE_LANG" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table TEACHES
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."TEACHES" 
+   (	"T_COURCE_ID" NUMBER(*,0), 
+	"EMAIL" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table UEMPLOYEE
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."UEMPLOYEE" 
+   (	"EMAIL" VARCHAR2(50 BYTE), 
+	"UNI_NUM" CHAR(8 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table USTUDENT
+--------------------------------------------------------
+
+  CREATE TABLE "C##RUWAA"."USTUDENT" 
+   (	"EMAIL" VARCHAR2(50 BYTE), 
+	"MAJOR_DEPARTMENT" VARCHAR2(50 BYTE), 
+	"UNI_NUM" CHAR(8 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into C##RUWAA.ACTIVITY
+SET DEFINE OFF;
+Insert into C##RUWAA.ACTIVITY (ACTIVITY_ID,NAME,DETAILES,ACTIVITY_DATE,PLACE,START_TIME,END_TIME) values (1,'Study abroad','Study abroad, grants and countries presented to them, the difficulties faced by the student when traveling and how to overcome them The foreign trainers will share their experiences in travel, scholarships, training abroad and some tips to prepare for travel, and they will answer your questions The seminar will include some tips for writing a motivation message that plays a key role in student selection. Waiting for you .. The meeting is open to all and attendance is free','8-8-2019','new campus sport colleg','11:00 am','12:00 pm');
+Insert into C##RUWAA.ACTIVITY (ACTIVITY_ID,NAME,DETAILES,ACTIVITY_DATE,PLACE,START_TIME,END_TIME) values (2,'TYO',' Come and meet a group of amazing volunteers and interns at Tomorrow''s Youth Organization. Different topics related to internships, volunteering, and studying abroad will be discussed. Do not miss the chance!','15-8-2019',' Language Resources Center LRC-the new campus','12:00 pm','01:00 pm');
+Insert into C##RUWAA.ACTIVITY (ACTIVITY_ID,NAME,DETAILES,ACTIVITY_DATE,PLACE,START_TIME,END_TIME) values (3,' Movie: How To Train Your Dragon','Learn English Through Movies!!','4-8-2019',' Language Resources Center','01:00 pm','03:00 pm');
+REM INSERTING into C##RUWAA.ADMIN
+SET DEFINE OFF;
+Insert into C##RUWAA.ADMIN (EMAIL,WORK_POSITION) values ('salsabeelDaraghmeh75@gmail.com','Maneger');
+Insert into C##RUWAA.ADMIN (EMAIL,WORK_POSITION) values ('ruwaa.tareq@gmail.com','CIO');
+REM INSERTING into C##RUWAA.CERTIFICATION
+SET DEFINE OFF;
+Insert into C##RUWAA.CERTIFICATION (STUDENT_NAME,COURCE_NAME,CAN_DELETE) values ('Kamal moaead mahmode dabak','English A2',1);
+REM INSERTING into C##RUWAA.COURCE
+SET DEFINE OFF;
+Insert into C##RUWAA.COURCE (COURCE_ID,COURCE_NAME) values (81,'Spanish');
+Insert into C##RUWAA.COURCE (COURCE_ID,COURCE_NAME) values (61,'Japanese');
+Insert into C##RUWAA.COURCE (COURCE_ID,COURCE_NAME) values (1,'English A2');
+Insert into C##RUWAA.COURCE (COURCE_ID,COURCE_NAME) values (2,'French A1');
+Insert into C##RUWAA.COURCE (COURCE_ID,COURCE_NAME) values (3,'English Conversation B2');
+REM INSERTING into C##RUWAA.COURCE_STU_NUM
+SET DEFINE OFF;
+Insert into C##RUWAA.COURCE_STU_NUM (COURCE_NAME,S_NUM) values ('Japanese',0);
+Insert into C##RUWAA.COURCE_STU_NUM (COURCE_NAME,S_NUM) values ('English Conversation B2',4);
+Insert into C##RUWAA.COURCE_STU_NUM (COURCE_NAME,S_NUM) values ('French A1',4);
+Insert into C##RUWAA.COURCE_STU_NUM (COURCE_NAME,S_NUM) values ('English A2',4);
+Insert into C##RUWAA.COURCE_STU_NUM (COURCE_NAME,S_NUM) values ('Spanish',0);
+REM INSERTING into C##RUWAA.ORGANIZE
+SET DEFINE OFF;
+Insert into C##RUWAA.ORGANIZE (ACTIV_ID,EMAIL) values (1,'salsabeelDaraghmeh75@gmail.com');
+Insert into C##RUWAA.ORGANIZE (ACTIV_ID,EMAIL) values (2,'salsabeelDaraghmeh75@gmail.com');
+Insert into C##RUWAA.ORGANIZE (ACTIV_ID,EMAIL) values (3,'ruwaa.tareq@gmail.com');
+REM INSERTING into C##RUWAA.SCHEDULE
+SET DEFINE OFF;
+Insert into C##RUWAA.SCHEDULE (S_COURCE_ID,COURCE_NAME,START_DATE,END_DATE,START_TIME,END_TIME,DAYS_IN_WEEK) values (1,'English A2','30-8-2019','1-1-2020','01:00 pm','02:00 pm','Sun-Tus-Thu');
+Insert into C##RUWAA.SCHEDULE (S_COURCE_ID,COURCE_NAME,START_DATE,END_DATE,START_TIME,END_TIME,DAYS_IN_WEEK) values (2,'French A1','30-8-2019','1-1-2020','12:00 pm','01:30 pm','Mon-Wed');
+Insert into C##RUWAA.SCHEDULE (S_COURCE_ID,COURCE_NAME,START_DATE,END_DATE,START_TIME,END_TIME,DAYS_IN_WEEK) values (3,'English Conversation B2','30-8-2019','1-1-2020','12:00 pm','01:00 pm','Sun-Tus-Thu');
+Insert into C##RUWAA.SCHEDULE (S_COURCE_ID,COURCE_NAME,START_DATE,END_DATE,START_TIME,END_TIME,DAYS_IN_WEEK) values (81,'Spanish A2','2019-08-01','2020-01-01','08:00 am','09:30 am','Mon-Wed');
+Insert into C##RUWAA.SCHEDULE (S_COURCE_ID,COURCE_NAME,START_DATE,END_DATE,START_TIME,END_TIME,DAYS_IN_WEEK) values (61,'Japanese A1','2019-08-30','2020-01-01','12:30 pm','01:30 pm','Mon-Wed');
+REM INSERTING into C##RUWAA.STAFF
+SET DEFINE OFF;
+Insert into C##RUWAA.STAFF (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,SEX,STAFF_PASSWORD) values ('salsabeelDaraghmeh75@gmail.com','salsabeel','salah','mostafa','daraghmeh','599887443','palestiine','tubas','garden street','F','123456');
+Insert into C##RUWAA.STAFF (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,SEX,STAFF_PASSWORD) values ('ruwaa.tareq@gmail.com','Ruwaa''','Tareq','Mahmood','Alawneh','1234567890','Palestine','Jenin','Fawara','F','0000');
+Insert into C##RUWAA.STAFF (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,SEX,STAFF_PASSWORD) values ('sam123@gmail.com','sam','georg','beter','alekhandro','0599111112','spain','madrid','del prado','M','0000');
+Insert into C##RUWAA.STAFF (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,SEX,STAFF_PASSWORD) values ('jasmen@hotmail.com','jasmen','john','jacob','graff','0599222111','franch','paris','avenue','F','54321');
+REM INSERTING into C##RUWAA.STUDENT
+SET DEFINE OFF;
+Insert into C##RUWAA.STUDENT (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,STUDENT_PASSWORD,SEX) values ('Amal@yahoo.com','amal','saeed','fahd','masaeed','599345345','palestine','nablus','Amman','23455','F');
+Insert into C##RUWAA.STUDENT (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,STUDENT_PASSWORD,SEX) values ('kamal123@gmail.com','Kamal','moaead','mahmode','dabak','565744334','palestine','nablus','sufyan','657466','M');
+Insert into C##RUWAA.STUDENT (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,STUDENT_PASSWORD,SEX) values ('salsabeel@gmail.com','salsabeel','salah','mostafa','daraghmeh','599887443','palestiine','tubas','garden street','123456','F');
+Insert into C##RUWAA.STUDENT (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,STUDENT_PASSWORD,SEX) values ('syfyan@gmail.com','Sufyan','a','b','c','1111111111','a',' b',' c','0000','M');
+Insert into C##RUWAA.STUDENT (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,STUDENT_PASSWORD,SEX) values ('ruwaa@gmail.com','Ruwaa''','Tareq','Mahmoud','Alawneh','596758383','palestine','jenin','jaba''','345678','F');
+Insert into C##RUWAA.STUDENT (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,STUDENT_PASSWORD,SEX) values ('mark@gmail.com','mark','tomson','linus','smith','587964345','england','ireland','abbey','65754478','M');
+Insert into C##RUWAA.STUDENT (EMAIL,F_NAME,S_NAME,TH_NAME,L_NAME,PHONE,COUNTRY,CITY,STREET,STUDENT_PASSWORD,SEX) values ('taya@gmail.com','taya','adrik','andrei','smirnov','598764324','russia','moscow','ulitsa','uy7674r','F');
+REM INSERTING into C##RUWAA.STUDENT_COURCES
+SET DEFINE OFF;
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (2,'kamal123@gmail.com',null,1);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (1,'kamal123@gmail.com',null,2);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (1,'taya@gmail.com',null,2);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (1,'mark@gmail.com',null,1);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (2,'mark@gmail.com',null,2);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (2,'taya@gmail.com',null,2);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (3,'Amal@yahoo.com',null,1);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (3,'kamal123@gmail.com',null,1);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (3,'salsabeel@gmail.com',null,2);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (1,'Amal@yahoo.com',null,2);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (3,'ruwaa@gmail.com',null,1);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (2,'Amal@yahoo.com',null,1);
+Insert into C##RUWAA.STUDENT_COURCES (S_COURCE_ID,EMAIL,FEES,STATUS) values (3,'syfyan@gmail.com',null,2);
+REM INSERTING into C##RUWAA.TEACHER
+SET DEFINE OFF;
+Insert into C##RUWAA.TEACHER (EMAIL,NATIVE_LANG) values ('sam123@gmail.com','English');
+Insert into C##RUWAA.TEACHER (EMAIL,NATIVE_LANG) values ('jasmen@hotmail.com','French');
+REM INSERTING into C##RUWAA.TEACHES
+SET DEFINE OFF;
+Insert into C##RUWAA.TEACHES (T_COURCE_ID,EMAIL) values (61,'jasmen@hotmail.com');
+Insert into C##RUWAA.TEACHES (T_COURCE_ID,EMAIL) values (1,'sam123@gmail.com');
+Insert into C##RUWAA.TEACHES (T_COURCE_ID,EMAIL) values (2,'sam123@gmail.com');
+Insert into C##RUWAA.TEACHES (T_COURCE_ID,EMAIL) values (3,'jasmen@hotmail.com');
+REM INSERTING into C##RUWAA.UEMPLOYEE
+SET DEFINE OFF;
+Insert into C##RUWAA.UEMPLOYEE (EMAIL,UNI_NUM) values ('Amal@yahoo.com','11111111');
+Insert into C##RUWAA.UEMPLOYEE (EMAIL,UNI_NUM) values ('kamal123@gmail.com','22222222');
+Insert into C##RUWAA.UEMPLOYEE (EMAIL,UNI_NUM) values ('taya@gmail.com','33333333');
+Insert into C##RUWAA.UEMPLOYEE (EMAIL,UNI_NUM) values ('syfyan@gmail.com','111111  ');
+REM INSERTING into C##RUWAA.USTUDENT
+SET DEFINE OFF;
+Insert into C##RUWAA.USTUDENT (EMAIL,MAJOR_DEPARTMENT,UNI_NUM) values ('salsabeel@gmail.com','Engineering','11715303');
+Insert into C##RUWAA.USTUDENT (EMAIL,MAJOR_DEPARTMENT,UNI_NUM) values ('ruwaa@gmail.com','Engineering','11715718');
+Insert into C##RUWAA.USTUDENT (EMAIL,MAJOR_DEPARTMENT,UNI_NUM) values ('mark@gmail.com','IT','11815718');
+--------------------------------------------------------
+--  DDL for Index PRIMARY_KEY_ADMIN
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##RUWAA"."PRIMARY_KEY_ADMIN" ON "C##RUWAA"."ADMIN" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PRIMARY_KEY_TEACHER
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##RUWAA"."PRIMARY_KEY_TEACHER" ON "C##RUWAA"."TEACHER" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007419
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##RUWAA"."SYS_C007419" ON "C##RUWAA"."STAFF" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007425
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##RUWAA"."SYS_C007425" ON "C##RUWAA"."COURCE" ("COURCE_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007429
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##RUWAA"."SYS_C007429" ON "C##RUWAA"."STUDENT" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007445
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##RUWAA"."SYS_C007445" ON "C##RUWAA"."ACTIVITY" ("ACTIVITY_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table ACTIVITY
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."ACTIVITY" ADD PRIMARY KEY ("ACTIVITY_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table ADMIN
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."ADMIN" ADD CONSTRAINT "PRIMARY_KEY_ADMIN" PRIMARY KEY ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table COURCE
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."COURCE" ADD PRIMARY KEY ("COURCE_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table STAFF
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."STAFF" ADD PRIMARY KEY ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table STUDENT
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."STUDENT" ADD PRIMARY KEY ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table TEACHER
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."TEACHER" ADD CONSTRAINT "PRIMARY_KEY_TEACHER" PRIMARY KEY ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table ADMIN
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."ADMIN" ADD FOREIGN KEY ("EMAIL")
+	  REFERENCES "C##RUWAA"."STAFF" ("EMAIL") ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table ORGANIZE
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."ORGANIZE" ADD FOREIGN KEY ("EMAIL")
+	  REFERENCES "C##RUWAA"."ADMIN" ("EMAIL") ON DELETE CASCADE ENABLE;
+  ALTER TABLE "C##RUWAA"."ORGANIZE" ADD CONSTRAINT "FOR_KEY" FOREIGN KEY ("ACTIV_ID")
+	  REFERENCES "C##RUWAA"."ACTIVITY" ("ACTIVITY_ID") ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table SCHEDULE
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."SCHEDULE" ADD FOREIGN KEY ("S_COURCE_ID")
+	  REFERENCES "C##RUWAA"."COURCE" ("COURCE_ID") ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table STUDENT_COURCES
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."STUDENT_COURCES" ADD FOREIGN KEY ("EMAIL")
+	  REFERENCES "C##RUWAA"."STUDENT" ("EMAIL") ON DELETE CASCADE ENABLE;
+  ALTER TABLE "C##RUWAA"."STUDENT_COURCES" ADD FOREIGN KEY ("S_COURCE_ID")
+	  REFERENCES "C##RUWAA"."COURCE" ("COURCE_ID") ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table TEACHER
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."TEACHER" ADD FOREIGN KEY ("EMAIL")
+	  REFERENCES "C##RUWAA"."STAFF" ("EMAIL") ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table TEACHES
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."TEACHES" ADD FOREIGN KEY ("EMAIL")
+	  REFERENCES "C##RUWAA"."TEACHER" ("EMAIL") ON DELETE CASCADE ENABLE;
+  ALTER TABLE "C##RUWAA"."TEACHES" ADD FOREIGN KEY ("T_COURCE_ID")
+	  REFERENCES "C##RUWAA"."COURCE" ("COURCE_ID") ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table UEMPLOYEE
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."UEMPLOYEE" ADD FOREIGN KEY ("EMAIL")
+	  REFERENCES "C##RUWAA"."STUDENT" ("EMAIL") ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table USTUDENT
+--------------------------------------------------------
+
+  ALTER TABLE "C##RUWAA"."USTUDENT" ADD FOREIGN KEY ("EMAIL")
+	  REFERENCES "C##RUWAA"."STUDENT" ("EMAIL") ON DELETE CASCADE ENABLE;
